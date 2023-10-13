@@ -63,10 +63,10 @@ function Grid() {
             {repos.map((elemento, elementoIndex) => (
                 <div className="col mt-2 " key={elementoIndex}>
                     <div className="card h-100">
-                        <img src={elemento.imagen} className="card-img-top"/>
+                        <a href={elemento.enlace}><img src={elemento.imagen} className="card-img-top"/></a>
                         <div className="card-body">
                             <h5 className="card-title">{elemento.nombre}</h5>
-                            <p className="card-text">{`Resumen: ${elemento.description}`}</p>
+                            <p className="card-text">{`${elemento.description}`}</p>
                         </div>
                         <div className="card-footer">
                             <a href={elemento.enlace} className="btn btn-primary">Go   </a>
