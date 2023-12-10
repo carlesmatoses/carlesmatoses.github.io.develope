@@ -44,7 +44,7 @@ function Proyecto_plantilla({ proyectos }) {
         <Container className="pt-4">
             {proyectos.map((proyecto, index) => (
 
-                <Row className="pt-4 justify-content-center " key={index}>
+                <Row className="pt-4 justify-content-center " key={index} onClick={proyecto.url}>
                     <Col bsPrefix="col-auto my-auto " style={{width:"300px"}}>
                         <Row className="g-0">
                             <Image src={proyecto.image} alt="" style={{objectFit:"cover"}} />
