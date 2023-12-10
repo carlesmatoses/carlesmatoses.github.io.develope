@@ -1,10 +1,9 @@
 
 import React from 'react'
 import { createRoot } from 'react-dom/client';
-import {BrowserRouter, HashRouter, Routes, Route, Link} from 'react-router-dom'
-import Header  from "./components/Header.jsx";
+import { HashRouter, Routes, Route } from 'react-router-dom'
+import Header from "./components/Header.jsx";
 import Index from './pagina/index.jsx';
-import GithubRepos from './pagina/github_repos.jsx';
 
 // Styles
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
@@ -13,29 +12,31 @@ import '../node_modules/bootstrap/dist/js/bootstrap.bundle.js'; // Importa el Ja
 
 function App() {
   return (
-    <>
+    <div>
       <HashRouter basename='/'>
         <Routes>
           <Route index element={
             <>
               <Header />
               <Index />
-              <GithubRepos/>
             </>
-          }/>
+          }
+          />
           <Route path='photography' element={
             <>
               <Header />
             </>
-          }/>
+          }
+          />
           <Route path='blender' element={
             <>
               <Header />
             </>
-          }/>
+          }
+          />
         </Routes>
       </HashRouter>
-    </>
+    </div>
   );
 }
 

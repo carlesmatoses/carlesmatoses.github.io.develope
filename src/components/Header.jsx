@@ -1,55 +1,80 @@
 import React from "react";
-import { useState } from 'react';
-import {Link} from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import logo from "../../assets/logogris.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLightbulb as regularLightbulb } from '@fortawesome/free-regular-svg-icons';
+import { faLightbulb as solidLightbulb } from '@fortawesome/free-solid-svg-icons';
 
-function Logo_plantilla({scaleX}){
-  return(
-  <img 
-    src={logo} 
-    alt="" 
-    width="30"
-    style={{ transform: `scaleX(${scaleX})` }}
-   />
-   );
+
+function Logo_plantilla({ scaleX }) {
+  return (
+    <img
+      src={logo}
+      alt=""
+      width="30"
+      style={{ transform: `scaleX(${scaleX})` }}
+    />
+  );
 }
+
 
 function Header() {
 
-    return (
-      // <div className="container-fluid-lg">
-        <nav className="navbar  navbar-expand-sm navbar-dark bg-dark">
+  useEffect(() => {
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    const htmlElement = document.querySelector("html");
 
-          <div className='container'>
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener("click", () => {
+        const currentTheme = htmlElement.getAttribute("data-bs-theme");
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        htmlElement.setAttribute("data-bs-theme", newTheme);
+      });
+    }
+  }, []); // El array vacío asegura que este efecto se ejecute una sola vez al montar el componente.
 
-            <Link to="/" className="navbar-brand"><Logo_plantilla scaleX={1}/></Link>
-            <Link to="/" className="navbar-brand">SelraK</Link>
+  return (
 
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNavAltMarkup"
-              aria-controls="navbarNavAltMarkup"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
+    <nav className="navbar navbar-expand-sm ">
 
-            <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-              <div className="navbar-nav  pe-5">
-                  <Link to="/" className='nav-link'> Home</Link>
-                  <Link to="/photography" className='nav-link'>Photography</Link>
-                  <Link to="/blender" className='nav-link'>Blender</Link>
-                  <Link to="https://github.com/carlesmatoses" className='nav-link'>GitHub</Link>
-                </div>
+      <div className='container'>
+
+        <Link to="/" className="navbar-brand"><Logo_plantilla scaleX={1} /></Link>
+        <Link to="/" className="navbar-brand">SelraK</Link>
+
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+          <div className="navbar-nav  pt-3-sm pe-5 ">
+
+            <div className="nav-link text-end">
+              <button id="theme-toggle" className="" style={{ border: "none ", background: "transparent" }}>
+                <FontAwesomeIcon icon={solidLightbulb} size="xl" />
+              </button>
             </div>
-            {/* <Link to="/" className="navbar-brand"><Logo_plantilla scaleX={-1}/></Link> */}
+
+            <Link to="/" className='nav-link text-end'> Home</Link>
+            <Link to="/photography" className='nav-link text-end'>Photography</Link>
+            <Link to="/blender" className='nav-link text-end'>Blender</Link>
+            <Link to="https://github.com/carlesmatoses" className='nav-link text-end'>GitHub</Link>
+
           </div>
-        </nav>
-      // </div>
-    );
-  }
+        </div>
+      </div>
+    </nav>
+  );
+}
 
 export default Header
+

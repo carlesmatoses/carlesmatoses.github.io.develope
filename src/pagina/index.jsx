@@ -1,43 +1,43 @@
 import React from "react";
-import {Link} from 'react-router-dom';
-import { useState } from 'react';
-import obtenerNombresDeRepositorios from "../components/github_info.jsx";
-const carlesmatoses = "carlesmatoses";
+import TabComponent from "../components/TabComponent.jsx";
 
-function Index(){
+function Index() {
 
-  const mostrarNombresDeRepositorios = obtenerNombresDeRepositorios(carlesmatoses);
+  return (
 
-  return(
+    <div className="container pt-3">
 
-  <div className="container" >
+      <div className="row justify-content-center">
+        <div className="row row-cols-1 row-cols-sm-2" style={{ maxWidth: "700px" }}>
 
-    <div className="row" >
-      <h1 className=" h1 text-center">Hello!</h1>
-      <h1 className="text-center h3">
-         <p className="fw-light">My Name's Carles</p>
-      </h1>
-    </div>
+          <div className="col d-flex align-items-center pb-3">
+            <div className="row row-cols-1">
+              <div className="col"><div className="h1 text-center">Hello!</div></div>
+              <div className="col"><div className="h3 fw-light text-center">My Name's Carles</div></div>
+              <div className="col"><div className="fw-light text-center">And sometimes SelraK!</div></div>
+            </div>
+          </div>
 
-    <div className="row justify-content-center">
-      <div className="col-auto m-3">
+          <div className="col d-flex align-items-center pb-3">
+            <div className="row row-cols-1 g-2">
+              <div className="col"><div className="fw-light text-center">I studied Digital Technologies and Multimedia at the Polytechnic University of Valencia.</div></div>
+              <div className="col"><div className="fw-light text-center">I like photography, Visual Effects, CGI, and developing multimedia apps.</div></div>
+            </div>
+          </div>
 
-        <p>
-          And sometimes SelraK!
-        </p>
-        <p className="pt-1">
-          I studied Digital Technologies and Multimedia at the Polytechnic University of Valencia,
-        </p>
-        <p>
-          And I like photography, Visual Effects, CGI, and developing multimedia apps.
-        </p>
-        
+        </div>
       </div>
-    </div>
-    
-  </div>
 
-    )
+      <hr />
+
+      <div className="row pt-3">
+        <TabComponent />
+      </div>
+
+
+
+    </div >
+  )
 }
 
 export default Index
