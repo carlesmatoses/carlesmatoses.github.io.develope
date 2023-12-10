@@ -41,18 +41,19 @@ const diccionario_proyectos = [
 
 function Proyecto_plantilla({ proyectos }) {
     return (
-        <Container>
+        <Container className="pt-4">
             {proyectos.map((proyecto, index) => (
 
-                <Row className="p-3 row-cols-1 row-cols-sm-2 justify-content-md-center" key={index}>
-                    <Col lg={3} >
-                        <img src={proyecto.image} alt={index} style={{ width: "250px", height: "140px", objectFit: "cover" }} />
+                <Row className="pt-4 justify-content-center " key={index}>
+                    <Col bsPrefix="col-auto my-auto " style={{width:"300px"}}>
+                        <Row className="g-0">
+                            <Image src={proyecto.image} alt="" style={{objectFit:"cover"}} />
+                        </Row>
                     </Col>
-                    <Col lg={5}>
-                        <Row><h3>{proyecto.nombre}</h3></Row>
-                        <Row><p>{proyecto.description}</p></Row>
+                    <Col bsPrefix="col-auto col-md-5 my-auto">
+                        <div className="h3">{proyecto.nombre}</div>
+                        <div>{proyecto.description}</div>
                     </Col>
-
                 </Row>
 
             ))}
