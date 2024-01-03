@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { FaGithub, FaYoutube, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 const socialMediaList = [
@@ -12,15 +12,17 @@ const socialMediaList = [
 
 const SocialMedia = ({ size }) => {
     return (
-        <Row className="justify-content-center">
-            {socialMediaList.map((item, index) => (
-                <Col key={index} xs="auto" className="p-2">
-                    <a href={item.url} target="_blank" rel="noopener noreferrer" title={item.name}>
-                        {React.cloneElement(item.icon, { size })}
-                    </a>
-                </Col>
-            ))}
-        </Row>
+        <Container >
+            <Row className="justify-content-center">
+                {socialMediaList.map((item, index) => (
+                    <Col key={index} xs="auto" className="p-2">
+                        <a href={item.url} target="_blank" rel="noopener noreferrer" title={item.name}>
+                            {React.cloneElement(item.icon, { size })}
+                        </a>
+                    </Col>
+                ))}
+            </Row>
+        </Container>
     );
 };
 
