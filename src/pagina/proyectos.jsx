@@ -1,6 +1,4 @@
 import React from "react";
-import logo from "../../assets/logogris.png"
-import logo2 from "../../assets/github-logo-size.png"
 import { Link } from 'react-router-dom';
 import { Col, Container, Image, Row } from "react-bootstrap";
 
@@ -27,7 +25,7 @@ const diccionario_proyectos = [
         url: "https://www.youtube.com/watch?v=3vSTqKgC5Z4",
     },
     {
-        nombre: "Color Management - ¿Qué es OpenColorIO/OCIO? | Ep2 | ES |",
+        nombre: "Color Management - ¿Qué es Filmic Blender? | Ep3 | ES |",
         description: `He decidido mostrar de forma gráfica el comportamiento 
         de la configuración que emplea blender. 
         Al mismo tiempo, también señalo algunas decisiones 
@@ -46,11 +44,11 @@ function Proyecto_plantilla({ proyectos }) {
 
                 <Row className="pt-4 justify-content-center " key={index}>
                     <Col bsPrefix="col-auto my-auto" style={{ width: "300px" }}>
-                        <Row className="g-0">
-                            <a href={proyecto.url}>
+                        <Link to={`${proyecto.url}`}>
+                            <Row className="g-0">
                                 <Image src={proyecto.image} alt="" style={{ objectFit: "cover" }} />
-                            </a>
-                        </Row>
+                            </Row>
+                        </Link>
                     </Col>
                     <Col bsPrefix="col-auto col-md-5 my-auto">
                         <div className="h3">{proyecto.nombre}</div>

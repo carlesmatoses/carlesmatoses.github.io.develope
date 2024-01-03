@@ -4,6 +4,8 @@ import { createRoot } from 'react-dom/client';
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import Header from "./components/Header.jsx";
 import Index from './pagina/index.jsx';
+import SocialMedia from './components/SocialMedia.jsx';
+import Gallery from './pagina/Gallery.jsx';
 
 // Styles
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
@@ -19,12 +21,14 @@ function App() {
             <>
               <Header />
               <Index />
+              <SocialMedia size={"40px"} />
             </>
           }
           />
           <Route path='photography' element={
             <>
               <Header />
+              {/* <Gallery /> */}
             </>
           }
           />
@@ -34,6 +38,8 @@ function App() {
             </>
           }
           />
+
+
         </Routes>
       </HashRouter>
     </div>

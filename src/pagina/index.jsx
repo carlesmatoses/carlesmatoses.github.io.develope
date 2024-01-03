@@ -1,5 +1,7 @@
 import React from "react";
 import TabComponent from "../components/TabComponent.jsx";
+import SocialMedia from "../components/SocialMedia.jsx";
+
 
 function Index() {
 
@@ -27,9 +29,9 @@ function Index() {
 
         </div>
       </div>
+      <SocialMedia size={"30px"} />
 
       <hr />
-
       <div className="row pt-3">
         <TabComponent />
       </div>
